@@ -19,7 +19,7 @@ export const Navigation = () => {
       top="0"
       right="0"
       left="0"
-      zIndex={99999}
+      zIndex={999}
     >
       <Container maxW="container.xl">
         <Flex justify="space-between" alignItems="center">
