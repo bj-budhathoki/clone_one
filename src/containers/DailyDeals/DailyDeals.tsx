@@ -22,44 +22,18 @@ import React from 'react';
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import { BsEye, BsHeart, BsStar } from 'react-icons/bs';
-
-const Title = styled(Heading)``;
+import {Title} from '@/components/Title/Title'
+import Link from 'next/link';
 
 export const DailyDeals = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Box>
-        <Box display="flex" justifyContent="center">
-          <Box width="fit-content">
-            <Heading
-              as="h2"
-              size="md"
-              textTransform="uppercase"
-              letterSpacing={2}
-              position="relative"
-              _before={{
-                content: "''",
-                background: 'gray.800',
-                height: '2px',
-                width: '80px',
-                position: 'absolute',
-                top: '50%',
-                left: '-100px'
-              }}
-              _after={{
-                content: "''",
-                background: 'gray.800',
-                height: '2px',
-                width: '80px',
-                position: 'absolute',
-                bottom: '50%',
-                right: '-100px'
-              }}
-            >
-              daily deals
-            </Heading>
-          </Box>
+      <Box display="flex" justifyContent="center">
+        <Box width="fit-content">
+        <Title text="daily deals"/>
+        </Box>
         </Box>
         <Flex justifyContent="center" my="3rem">
           <Grid templateColumns="repeat(3, 1fr)" gap="3rem">
@@ -81,9 +55,9 @@ export const DailyDeals = () => {
           </Grid>
         </Flex>
         <Box>
-          <Grid templateColumns="repeat(auto-fit, minmax(300px,1fr))" gap={6}>
-            {[1, 2, 3, 4, 5].map((val) => (
-              <Box>
+          <Grid templateColumns="repeat(auto-fit, minmax(250px,1fr))" gap={6}>
+            {[1, 2, 3, 4, 5,6,7,8].map((val) => (
+              <Box key={val}>
                 <Box
                   position="relative"
                   role="group"
@@ -101,12 +75,17 @@ export const DailyDeals = () => {
                   >
                     New
                   </Badge>
+                  <Link href={`/product/${val}`}>
+                  <a>
                   <Image
-                    height={400}
-                    width={300}
+                    height={350}
+                    width={250}
                     src="/assets/images/product-8.jpg"
                     layout="responsive"
                   />
+                  </a>
+                  </Link>
+
                   <Box
                     transition="all 0.5s linear"
                     height={0}
@@ -189,9 +168,19 @@ export const DailyDeals = () => {
                   </Box>
                 </Box>
                 <Box py={4} textAlign="center">
-                  <Heading as="h3" size="md">
+                <Link href={`/product/${val}`}>
+                      <a>
+                      <Heading as="h3" size="md"
+                      transition="all"
+                      transitionDuration="0.2s"
+                      transitionTimingFunction="ease-in"
+                      _hover={{
+                        color:'pink'
+                      }}>
                     Lorem ipsum dolor sit amet.
                   </Heading>
+                      </a>
+                  </Link>
                   <Box
                     display="flex"
                     flexDirection="column"

@@ -39,7 +39,13 @@ export const Services = () => {
       {services?.map((service) => (
         <Flex alignItems="center" key={service.title}>
           <StyledServiceIcon>
-            <Image src={service?.img} width={45} height={45} layout="fixed" />
+            <Image
+              src={service?.img}
+              width={45}
+              height={45}
+              layout="fixed"
+              alt={service?.title}
+            />
           </StyledServiceIcon>
           <Box marginLeft="1rem">
             <Heading as="h6" size="md" fontWeight="medium">
