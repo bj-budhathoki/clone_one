@@ -1,3 +1,5 @@
+import { Button } from '@chakra-ui/button';
+import { Input } from '@chakra-ui/input';
 import { Box, Flex, Heading, HStack, Stack, Text } from '@chakra-ui/layout';
 
 import {
@@ -25,9 +27,10 @@ function RadioCard(props) {
       <Box
         {...checkbox}
         cursor="pointer"
-        borderWidth="1px"
-        borderRadius="md"
-        boxShadow="sm"
+        // borderWidth="1px"
+        // borderRadius="md"
+        // boxShadow="sm"
+        background="gray.100"
         _checked={{
           bg: 'teal.600',
           color: 'white',
@@ -37,7 +40,7 @@ function RadioCard(props) {
           boxShadow: 'outline'
         }}
         px={3}
-        py={1}
+        py={2}
       >
         {props.children}
       </Box>
@@ -130,6 +133,36 @@ export const QuickViewModal = ({ isOpen, onClose }) => {
                     })}
                   </HStack>
                 </Box>
+              </Flex>
+              <Flex mt={5} style={{ gap: '1rem' }}>
+                <Flex
+                  width="90px"
+                  height="56px"
+                  border="1px solid gray"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <Button size="xs" background="transparent" fontSize="x-large">
+                    -
+                  </Button>
+                  <Input value="3" border="unset"></Input>
+                  <Button size="xs" background="transparent" fontSize="large">
+                    +
+                  </Button>
+                </Flex>
+                <Button
+                  colorScheme="teal"
+                  size="lg"
+                  borderRadius="unset"
+                  textTransform="uppercase"
+                  py={7}
+                  px={9}
+                  _hover={{
+                    boxShadow: 'inset 10.5em 0 0 0 #05646a'
+                  }}
+                >
+                  Add to cart
+                </Button>
               </Flex>
             </Box>
           </Box>
