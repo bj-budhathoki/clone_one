@@ -24,18 +24,17 @@ export const Navigation = () => {
       <Container maxW="container.xl">
         <Flex justify="space-between" alignItems="center">
           <Heading as="h5" size="md" isTruncated>
-            Clone.
+            <Link href="/">
+              <a> Clone.</a>
+            </Link>
           </Heading>
           <Box>
             <nav>
               <Grid templateColumns="repeat(5, 1fr)" gap={8}>
-                <Link href="#">
-                  <StyledA>Home</StyledA>
-                </Link>
-                <Link href="#">
+                <Link href="/collections">
                   <StyledA>Shop</StyledA>
                 </Link>
-                <Link href="#">
+                <Link href="/collections">
                   <StyledA>Collections</StyledA>
                 </Link>
                 <Link href="#">

@@ -7,7 +7,7 @@ import { Box, Container } from '@chakra-ui/layout';
 export default function Home() {
   return (
     <main>
-      <Box marginTop="4rem" background="green.500" minHeight="70vh">
+      <Box background="green.500" minHeight="70vh">
         <HeroSlider />
       </Box>
       <Box my="8rem">
@@ -23,7 +23,7 @@ export default function Home() {
       </Box>
       <Box my="8rem">
         <Container maxW="container.xl">
-         <Blog/>
+          <Blog />
         </Container>
       </Box>
     </main>
