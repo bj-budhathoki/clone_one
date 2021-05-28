@@ -14,39 +14,8 @@ import { Radio, RadioGroup, useRadio, useRadioGroup } from '@chakra-ui/radio';
 import Image from 'next/image';
 import React from 'react';
 import { BsStar } from 'react-icons/bs';
-
-function RadioCard(props) {
-  const { getInputProps, getCheckboxProps } = useRadio(props);
-
-  const input = getInputProps();
-  const checkbox = getCheckboxProps();
-
-  return (
-    <Box as="label">
-      <input {...input} />
-      <Box
-        {...checkbox}
-        cursor="pointer"
-        // borderWidth="1px"
-        // borderRadius="md"
-        // boxShadow="sm"
-        background="gray.100"
-        _checked={{
-          bg: 'teal.600',
-          color: 'white',
-          borderColor: 'teal.600'
-        }}
-        _focus={{
-          boxShadow: 'outline'
-        }}
-        px={3}
-        py={2}
-      >
-        {props.children}
-      </Box>
-    </Box>
-  );
-}
+import AddRemove from '../AddRemove';
+import { SizeColor } from '../SizeColor';
 
 export const QuickViewModal = ({ isOpen, onClose }) => {
   const { getRootProps, getRadioProps } = useRadioGroup({
@@ -105,51 +74,9 @@ export const QuickViewModal = ({ isOpen, onClose }) => {
                   adipisicing elit. Ipsum, sunt!
                 </Text>
               </Box>
-              <Flex py={5} style={{ gap: '5rem' }}>
-                <Box>
-                  <Text fontSize="xl" fontWeight="normal" mb={2}>
-                    Color
-                  </Text>
-                  <RadioGroup value="1">
-                    <Stack direction="row">
-                      <Radio value="1" colorScheme="red" size="lg"></Radio>
-                      <Radio value="2" colorScheme="green" size="lg"></Radio>
-                      <Radio value="3" colorScheme="blue" size="lg"></Radio>
-                    </Stack>
-                  </RadioGroup>
-                </Box>
-                <Box>
-                  <Text fontSize="xl" fontWeight="normal" mb={2}>
-                    Size
-                  </Text>
-                  <HStack {...group}>
-                    {['x', 'M', 'XL'].map((value) => {
-                      const radio = getRadioProps({ value });
-                      return (
-                        <RadioCard key={value} {...radio}>
-                          {value}
-                        </RadioCard>
-                      );
-                    })}
-                  </HStack>
-                </Box>
-              </Flex>
+              <SizeColor />
               <Flex mt={5} style={{ gap: '1rem' }}>
-                <Flex
-                  width="90px"
-                  height="56px"
-                  border="1px solid gray"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <Button size="xs" background="transparent" fontSize="x-large">
-                    -
-                  </Button>
-                  <Input value="3" border="unset"></Input>
-                  <Button size="xs" background="transparent" fontSize="large">
-                    +
-                  </Button>
-                </Flex>
+                <AddRemove />
                 <Button
                   colorScheme="teal"
                   size="lg"

@@ -11,9 +11,12 @@ import {
   Stack,
   useDisclosure
 } from '@chakra-ui/react';
+import { BiGridHorizontal, BiGridSmall, BiListUl } from 'react-icons/bi';
+
 import { BreadCrumb } from '@/components/BreadCrumb/BreadCrumb';
 import { Product } from '@/components/Card/Product';
 import { QuickViewModal } from '@/components/Modal/QuickViewModal';
+import { InputSelect } from '@/components';
 
 const collections = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -70,7 +73,7 @@ const collections = () => {
                       </Stack>
                     </CheckboxGroup>
                   </Box>
-                  <Box></Box>
+
                   <Box>
                     <Box>
                       <Text mb="1rem" fontSize="lg">
@@ -114,7 +117,19 @@ const collections = () => {
                 </Box>
               </Box>
               <Box>
-                <Box>showing 15 of 144 result</Box>
+                <Flex justifyContent="space-between" alignItems="center" py="3">
+                  <Flex alignItems="center">
+                    <Box>
+                      <InputSelect width={200} borderRadius={0} />
+                    </Box>
+                    <Box px="5">showing 15 of 144 result</Box>
+                  </Flex>
+                  <Box>
+                    <BiGridSmall />
+                    <BiGridHorizontal />
+                    <BiListUl />
+                  </Box>
+                </Flex>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                   {[1, 2, 3, 4, 5].map((val) => (
                     <Product key={val} onOpen={onOpen} />

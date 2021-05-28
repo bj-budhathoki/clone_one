@@ -14,6 +14,8 @@ import { Button } from '@chakra-ui/button';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/tabs';
 import { DailyDeals } from '@/containers/DailyDeals/DailyDeals';
 import { BreadCrumb } from '@/components/BreadCrumb/BreadCrumb';
+import { SizeColor } from '@/components/SizeColor';
+import AddRemove from '@/components/AddRemove';
 const ProductDetails = () => {
   const route = useRouter();
   console.log('route', route);
@@ -71,16 +73,23 @@ const ProductDetails = () => {
                 </Text>
               </Box>
               <Divider my="3rem" />
-              <Box>
+              <SizeColor />
+              <Flex mt={5} style={{ gap: '1rem' }}>
+                <AddRemove />
                 <Button
                   colorScheme="teal"
                   size="lg"
-                  textTransform="uppercase"
                   borderRadius="unset"
+                  textTransform="uppercase"
+                  py={7}
+                  px={9}
+                  _hover={{
+                    boxShadow: 'inset 10.5em 0 0 0 #05646a'
+                  }}
                 >
-                  buy now
+                  Add to cart
                 </Button>
-              </Box>
+              </Flex>
             </Box>
           </Flex>
         </Box>
